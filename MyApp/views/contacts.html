@@ -30,15 +30,15 @@
                style="min-width:240px; background-image: url('styles/images/link_bkg.png'); background-size: 100% 100%; ">
                 <div style="float: left; position: relative; width: 50%; min-width: 160px;">
                     <img src='styles/images/thumb_c1357.png' style="float: left; height: 50px">
-                    <div style="font-size: 14px; font-weight: bold">#: data.name #<br>#: data.id #<br>#: data.serial #</div>
+                    <div style="font-size: 14px; font-weight: bold">#: data.printer1.name #<br>#: data.printer1.id #<br>#: data.printer1.serial #</div>
                 </div>
             </a>
 
             <a data-role="button" data-icon="details" class="printerRow"
-               style="min-width:240px; background-image: url('styles/images/link_bkg.png'); background-size: 100% 100%; ">
+               style="min-width:240px; background-image: url('styles/images/link_bkg.png'); background-size: 100% 100%; #: data.printer2.cellClass #">
                 <div style="float: left; position: relative; width: 50%; min-width: 160px;">
                     <img src='styles/images/thumb_c1357.png' style="float: left; height: 50px; ">
-                    <div style="font-size: 14px; font-weight: bold">#: data.name #<br>#: data.id #<br>#: data.serial #</div>
+                    <div style="font-size: 14px; font-weight: bold">#: data.printer2.name #<br>#: data.printer2.id #<br>#: data.printer2.serial #</div>
                 </div>
             </a>
         </div>
@@ -48,9 +48,9 @@
         function listViewInit() {
             $("#printerContainer").kendoMobileListView({
                 dataSource: listviewDatasource,
-                template: $("#contactsTemplate").text(),
-                virtualViewSize: 50,
-                endlessScroll: true
+                template: $("#contactsTemplate").text()
+                //virtualViewSize: 50,
+                //endlessScroll: true
             });
         }
     </script>
