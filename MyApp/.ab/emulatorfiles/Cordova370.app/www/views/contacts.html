@@ -5,7 +5,7 @@
                 <img src="styles/images/green_bubble.png" height="50" alt=""/>
             </div>
             <div class="headerLabel" style="padding-left: 10px; float:left; ">
-                 My Printers
+                My Printers
             </div>
             <div style="float:right; height: 100%">
                 <div style="display: inline-block; height: 100%; vertical-align: bottom;"></div>
@@ -20,35 +20,33 @@
         </div>
     </div>
 
-    <!--
-    <ul data-role="listview" id="printerrow" data-style="inset"
-        data-template="contactsTemplate" data-bind="source: ds"></ul>
-    -->
-
-    <ul id="printerrow"></ul>
+    <ul id="printerContainer" ></ul>
 
     <!-- this is the template used by the listview. template items are automatically
          wrapped in an <li> by Kendo UI Mobile -->
     <script type="text/x-kendo-template" id="contactsTemplate">
-        <span style="width: 95%">
-            <a data-role="button" data-icon="details" class="printerRowWidth" style="min-width:250px; background-image: url('styles/images/link_bkg.png'); background-size: 100% 100%">
-            	<div style="display: flex; justify-content: left; align-items: center;">
-                    <img src='styles/images/thumb_c1357.png' style="margin-right: 30px">
-                    <div style="float: right; font-size: 14px; font-weight: bold">#: data.name #<br>#: data.id #<br>#: data.serial #</div>
+        <div class="printerRowContainer" style="width: 100%;">
+            <a data-role="button" data-icon="details" class="printerRow"
+               style="min-width:240px; background-image: url('styles/images/link_bkg.png'); background-size: 100% 100%; ">
+                <div style="float: left; position: relative; width: 50%; min-width: 160px;">
+                    <img src='styles/images/thumb_c1357.png' style="float: left; height: 50px">
+                    <div style="font-size: 14px; font-weight: bold">#: data.name #<br>#: data.id #<br>#: data.serial #</div>
                 </div>
             </a>
-            <a data-role="button" data-icon="details" class="printerRowWidth" style="min-width:250px; background-image: url('styles/images/link_bkg.png'); background-size: 100% 100%">
-            	<div style="display: flex; justify-content: left; align-items: center; ">
-                    <img src='styles/images/thumb_c1357.png' style="margin-right: 30px">
-                    <div style="float: right; font-size: 14px; font-weight: bold">#: data.name #<br>#: data.id #<br>#: data.serial #</div>
+
+            <a data-role="button" data-icon="details" class="printerRow"
+               style="min-width:240px; background-image: url('styles/images/link_bkg.png'); background-size: 100% 100%; ">
+                <div style="float: left; position: relative; width: 50%; min-width: 160px;">
+                    <img src='styles/images/thumb_c1357.png' style="float: left; height: 50px; ">
+                    <div style="font-size: 14px; font-weight: bold">#: data.name #<br>#: data.id #<br>#: data.serial #</div>
                 </div>
             </a>
-        </span>
+        </div>
     </script>
 
     <script>
         function listViewInit() {
-            $("#printerrow").kendoMobileListView({
+            $("#printerContainer").kendoMobileListView({
                 dataSource: listviewDatasource,
                 template: $("#contactsTemplate").text(),
                 virtualViewSize: 50,

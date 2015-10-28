@@ -58,7 +58,7 @@ body, html {
 #no-map {
     position: absolute;
     margin: 0 auto;
-    top: 40%;    
+    top: 40%;
     text-align: center;
 }
 
@@ -358,12 +358,12 @@ body, html {
 }
 
 #racbuttonstrip .km-state-active {
-    background-color: white;     
+    background-color: white;
     color: black;
 }
 
 #racbuttonstrip {
-    background-color: black;     
+    background-color: black;
     color: white;
 }
 
@@ -371,21 +371,27 @@ body, html {
 #racbuttonstrip li {
     border-top: 1px solid white;
     border-bottom: 1px solid white;
-    border-right: 1px solid white; 
+    border-right: 1px solid white;
 }
 
-#printerrow li {
+#printerContainer li {
     border: none;
     padding: 0;
 }
 
 #homepage .km-content {
     background-image: url(../styles/images/business_bkg.png);
-    background-size: 100% 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
-.printerRowWidth {
-    width: 49%; 
+.printerRow {
+    width: 47%;
+}
+
+.printerRowContainer {
+    margin-left: 20px;
 }
 
 .headerLabel {
@@ -393,12 +399,12 @@ body, html {
 }
 
 .headerAddPrinter {
-    font-size: 20px; 
+    font-size: 20px;
 }
 
 .headerDiv {
     height: 75px;
-    margin: 20px 5px 20px 20px; 
+    margin: 20px 5px 20px 20px;
 }
 
 .addPrinterButton {
@@ -416,7 +422,7 @@ body, html {
 }
 
 .footerDiv {
-    height: 80px; 
+    height: 80px;
 }
 
 .navButton {
@@ -424,41 +430,46 @@ body, html {
 }
 
 @media only screen and (max-width: 480px) {
-    .printerRowWidth {
-        width: 98%; 
+    .printerRow {
+        width: 95%;
+    }
+
+    .printerRowContainer {
+        margin-left: 10px;
     }
 
     .footerIcon {
-        display: none; 
+        display: none;
     }
-    
+
     .headerLabel {
-        font-size: 20px; 
+        font-size: 20px;
     }
-    
+
     .headerIcon {
-        display: none; 
+        display: none;
     }
-    
+
     .headerAddPrinter {
-        font-size: 12px; 
+        font-size: 12px;
     }
-    
+
     .headerDiv {
         height: 40px;
-        margin: 10px 3px 10px 10px; 
+        margin: 10px 3px 10px 10px;
     }
 
     .addPrinterButton {
         height: 22px;
     }
     .footerDiv {
-        height: 60px; 
+        height: 60px;
     }
     .navButton {
         font-size: 14px;
     }
 }
+
 
 
 
