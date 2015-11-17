@@ -4,12 +4,13 @@
 var app;
 var listviewDatasource;
 var currentPrinterIndex = 1;
+var showColumn2 = true;
 
 (function () {
 
     var printers = [], i;
-    for (i = 0; i < 33; i++) {
-        printers.push(createPrinter());
+    for (i = 0; i < 3; i++) {
+        printers.push(createPrinter(showColumn2));
     }
 
     // create an object to store the models for each view
@@ -61,10 +62,32 @@ var currentPrinterIndex = 1;
 
 }());
 
-function createPrinter() {
-    var newPrinter = { id: currentPrinterIndex, name: ('printer' + currentPrinterIndex), serial: (345678 - currentPrinterIndex) };
+function createPrinter(showColumn2Arg) {
+    var newPrinter1 = {
+        id: currentPrinterIndex,
+        cellClass: '',
+        name: ('printer' + currentPrinterIndex),
+        serial: (345678 - currentPrinterIndex) };
+
     currentPrinterIndex++;
-    return newPrinter;
+
+    var cellClassPrinter2 = showColumn2Arg === true ? '' : 'display: none';
+
+    var newPrinter2 = {
+        id: currentPrinterIndex,
+        cellClass: cellClassPrinter2,
+        name: ('printer' + currentPrinterIndex),
+        serial: (345678 - currentPrinterIndex) };
+
+    if (showColumn2Arg === true) {
+        currentPrinterIndex++;
+    }
+
+    var printers = {};
+    printers.printer1 = newPrinter1;
+    printers.printer2 = newPrinter2;
+
+    return printers;
 }
 
 function onSelect(e) {
@@ -79,8 +102,20 @@ function onSelect(e) {
 
 // jorges comment
 function addPrinter(e) {
-    var newPrinter = createPrinter();
-    listviewDatasource.add(newPrinter);
+    var index = listviewDatasource.total() - 1;
+    var lastItem = listviewDatasource.at(index);
+    var newPrinter;
+    if (lastItem.printer2.cellClass.indexOf('none') != -1) {
+        listviewDatasource.remove(lastItem);
+        currentPrinterIndex--;
+        newPrinter = createPrinter(true);
+        listviewDatasource.add(newPrinter);
+    }
+    else {
+        newPrinter = createPrinter(false);
+        listviewDatasource.add(newPrinter);
+    }
+
 }
 
 
